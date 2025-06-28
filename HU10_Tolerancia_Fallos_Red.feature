@@ -1,16 +1,23 @@
 Feature: Tolerancia a fallos de red
 
-  Scenario: Registro de captura sin conexión
-    Given que el pescador no tiene conexión a internet
-    When registra una nueva captura
-    Then la app guarda el dato localmente y lo sincroniza luego
+  DADO QUE el pescador artesanal está sin internet y necesita utilizar la aplicación Fishmax
+  CUANDO registra alguna captura
+  ENTONCES la app almacena gracias a su Big Data el dato localmente y sincroniza cuando se restablezca la conexión
 
-  Scenario: Visualización de mapa offline
-    Given que el usuario se encuentra sin señal
-    When accede al mapa previamente descargado
-    Then la aplicación muestra las zonas guardadas sin conexión
+  DADO QUE el usuario está en altamar y perdió la señal
+  CUANDO abre el mapa offline
+  ENTONCES la aplicación de Fishmax muestra las zonas previamente descargadas sin necesidad de conexión
 
-  Scenario: Recolección de datos de sensores sin internet
-    Given que los sensores recopilan información sin red
-    When se recupera la conexión
-    Then la app sincroniza los datos con el servidor
+  DADO QUE el pescador artesanal está en una zona sin cobertura de red
+  CUANDO los sensores del sistema (por ejemplo, de temperatura del agua o velocidad del viento) recolectan datos
+  ENTONCES la aplicación almacena los datos de los sensores localmente y los sincroniza con el servidor en cuanto se recupere la conexión, asegurando que no se pierda información crítica
+
+INPUT:
+  - Registro de captura
+  - Acceso al mapa offline
+  - Recolección de datos desde sensores sin conexión
+
+OUTPUT:
+  - Almacenamiento local
+  - Sincronización automática al recuperar conexión
+  - Visualización sin conexión
