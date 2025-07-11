@@ -30,3 +30,8 @@ Feature: Seguridad de almacenamiento de datos personales
     Then la app debe responder con las políticas de seguridad correspondientes
 
     Examples:
+      | accion                         | estado             |
+      | Ingreso desde nuevo dispositivo| Requiere OTP       |
+      | Guardar ruta de pesca          | Datos cifrados     |
+      | Editar datos personales        | Solicita validación|
+      | Acceso a historial de pesca    | Autenticación OTP  |
